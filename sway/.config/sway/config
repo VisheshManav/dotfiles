@@ -27,7 +27,7 @@ include /etc/sway/config-vars.d/*
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/Northan_lights_by_mizuno.webp fill #b48ead
-output * scale 3
+output * scale 1.5
 
 #
 # Example configuration:
@@ -58,6 +58,24 @@ exec swayidle -w \
 floating_modifier $mod normal
 
 # Bar Config:
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+# bar {
+#     position bottom
+# 
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     
+#     status_command ~/.config/sway/bar.sh
+# 
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
+# }
 bar {
     swaybar_command waybar
 }
@@ -284,23 +302,5 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-# bar {
-#     position bottom
-# 
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     
-#     status_command ~/.config/sway/bar.sh
-# 
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
-# }
 
 include /etc/sway/config.d/*
