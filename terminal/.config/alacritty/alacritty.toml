@@ -1,0 +1,12 @@
+shell = "fish"
+
+[font]
+size = 11.0
+normal = {family="0xProto Nerd Font Propo", style="Regular"}
+bold = {family="0xProto", style="Bold"}
+italic = {family="0xProto", style="Italic"}
+
+[window]
+padding = { x = 3, y = 3 }
+dynamic_padding = true
+opacity = 1

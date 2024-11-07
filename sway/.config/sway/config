@@ -121,6 +121,7 @@ exec {
     mako --default-timeout 200
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
     darkman run
+    calibre --start-in-tray
     # syncthing-gtk
 }
 # open at startup
