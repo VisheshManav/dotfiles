@@ -26,7 +26,7 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/Northan_lights_by_mizuno.webp fill #b48ead
+output * bg /home/vishesh/Pictures/Wallpapers/dark-clouds.jpeg fill
 output * scale 1.5
 
 #
@@ -50,9 +50,9 @@ output * scale 1.5
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock -f -i /home/vishesh/Pictures/Wallpapers/dark-clouds.jpeg' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock -f -i /home/vishesh/Pictures/Wallpapers/dark-clouds.jpeg'
 
 #  --- MY CONFIG ---
 floating_modifier $mod normal
@@ -80,7 +80,7 @@ bar {
     swaybar_command waybar
 }
 
-font pango:0xProto Nerd Font Propo 7
+font pango:0xProto Nerd Font Propo 9
 
 for_window [tiling] border none
 for_window [app_id="ulauncher"] border none
@@ -89,9 +89,9 @@ for_window [app_id="org.gnome.Characters"] floating enable
 
 # Keyboard Shortcuts:
 ## Scaling:
-bindsym $mod+Ctrl+0 output * scale 1
+bindsym $mod+Ctrl+0 output * scale 1.5
 bindsym $mod+Ctrl+equal output * scale 2
-bindsym $mod+Ctrl+minus output * scale 1.5
+bindsym $mod+Ctrl+minus output * scale 1.25
 ## Volume:
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -114,11 +114,16 @@ bindsym $mod+m exec darkman toggle
 # gnome-characters bind
 bindsym $mod+Ctrl+e exec gnome-characters
 
+bindgesture swipe:left workspace prev
+bindgesture swipe:right workspace next
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 # Execution at StartUp:
 exec {
     protonvpn-app
     gammastep
-    mako --default-timeout 200
+    mako --default-timeout 5000
     dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
     darkman run
     calibre --start-in-tray
@@ -126,9 +131,10 @@ exec {
 }
 # open at startup
 exec swaymsg {
-    "workspace 3; exec firefox;"
-    "workspace 2; exec obsidian --ozone-platform=wayland --enable-features=WaylandWindowDecorations;"
+    "workspace 1; layout tabbed;"
     "workspace 1; exec alacritty -e tmux attach;"
+    "workspace 1; exec firefox;"
+    "workspace 1; exec obsidian --ozone-platform=wayland --enable-features=WaylandWindowDecorations;"
 }
 
 gaps inner 1

@@ -9,5 +9,18 @@ end
 
 ColorMyPencils("catppuccin")
 
+-- local function set_colorscheme(mode)
+--     if mode == "dark" then
+--         vim.cmd("colorscheme rose-pine-moon")
+--     elseif mode == "light" then
+--         vim.cmd("colorscheme rose-pine-dawn")
+--     else
+--         print("Invalid mode passed to set_colorscheme: " .. tostring(mode))
+--     end
+-- end
+-- 
+-- return {
+--     set_colorscheme = set_colorscheme
+-- }
 
 

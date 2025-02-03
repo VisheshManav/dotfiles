@@ -5,13 +5,12 @@
 #
 
 # Some tweaks to the status line
-set -g status-right ""
+set -g status-right "%H:%M"
 set -g window-status-current-style "underscore"
 
 # If running inside tmux ($TMUX is set), then change the status line to red
 # %if #{TMUX}
 set -g status-style "bg=black fg=blue"
-#set -g status-style "bg=white fg=black"
 # %endif
 
 # Enable RGB colour if running in xterm(1)
@@ -20,9 +19,10 @@ set-option -sa terminal-features ",xterm*:RGB"
 # Change the default $TERM to tmux-256color
 set -g default-terminal "tmux-256color"
 set -g default-shell "/usr/bin/fish"
-set -g pane-border-style "fg=#5a5a5a"
-set -g pane-active-border-style "fg=blue"
-bind r source-file ~/.config/tmux/tmux.conf \; display-message "Tmux config reloaded!"
+set -g pane-border-style fg=gray
+set -g pane-active-border-style fg=blue
+bind r source-file ~/.tmux.conf \; display-message "Tmux config reloaded!"
+
 # No bells at all
 set -g bell-action none
 
