@@ -7,7 +7,21 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "margin": 0,
+    // --------------------------------------
+    // Here, It is needed for hiding the bar in addition to the to bar settings in swayconfig
+    "bar_id": "bar-0",
+    "ipc": true,
+    "modes": {
+        "invisible": {
+            "passthrough": false,
+            "visible": true
+        }
+    },
+    // --------------------------------------
     "modules-left": [
+        "sway/workspaces",
+        "sway/mode",
+        "sway/scratchpad",
         "tray",
         "idle_inhibitor",
         "network",
@@ -15,21 +29,19 @@
         "custom/media"
     ],
     "modules-center": [
-        "clock",
-        "sway/workspaces",
-        "sway/mode",
-        "sway/scratchpad",
-        "custom/gatedday"
+        "sway/window" 
+      // "custom/message"
     ],
     "modules-right": [
         "bluetooth",
         "pulseaudio",
         "memory",
+        "cpu",
         "backlight",
-        "battery"
+        "battery",
+        "clock"
         //"mpd",
         // "power-profiles-daemon",
-        // "cpu",
         // "temperature",
         // "keyboard-state",
         // "battery#bat2",
@@ -52,6 +64,9 @@
     //         "default": ""
     //     }
     // },
+    "sway/window": {
+       "format": "" 
+    },
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
@@ -111,7 +126,7 @@
     },
     "clock": {
         // "timezone": "America/New_York",
-        "format": "{:%a %d %b %H:%M}",
+        "format": "{:%H:%M %d-%m %a}",
         //"tooltip-format": "{:%Y, %B %d - %A}",
     },
     "cpu": {
@@ -220,8 +235,8 @@
 
 	    "on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Shutdown'  'shutdown -h now' -b 'Restart' 'shutdown -r now' -b 'Logout' 'swaymsg exit' -b 'Hibernate' 'systemctl hibernate' --background=#005566 --button-background=#009999 --button-border=#002b33 --border-bottom=#002b33"
 },
-    "custom/gatedday": {
-        "exec": "$HOME/.config/waybar/scripts/gatedday.py 2> /dev/null",
+    "custom/message": {
+        "exec": "$HOME/.config/waybar/scripts/message.py 2> /dev/null",
         "interval": 600
     },
     "bluetooth": {

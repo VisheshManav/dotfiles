@@ -1,5 +1,5 @@
 * {
-    font-family: "0xProto Nerd Font Propo", sans-serif;
+font-family: "IosevkaTermNerdFontPropo", sans-serif;
     font-size: 12px;
 }
 window#waybar {
@@ -8,7 +8,13 @@ window#waybar {
     /*border-bottom: 3px solid rgba(76, 86, 202, 1); above:46, 52, 64*/
     color: #d4d4d4;
 } 
-
+/* show window only if the workspace is empty (requires `sway/window` module) */
+/*window#waybar.mode-invisible {
+   opacity: 0;
+}
+window#waybar.mode-invisible.empty {
+   opacity: 1;
+}*/
 button {
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;

@@ -7,7 +7,7 @@ function ColorMyPencils(color)
 
 end
 
-ColorMyPencils("catppuccin")
+ColorMyPencils("catppuccin-mocha")
 
 -- local function set_colorscheme(mode)
 --     if mode == "dark" then

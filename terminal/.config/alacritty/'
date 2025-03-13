@@ -8,9 +8,9 @@ import = [
 
 [font]
 size = 11.0
-normal = {family="IosevkaTermNerdFontPropo", style="Regular"}
-bold = {family="IosevkaTermNerdFontPropo", style="Bold"}
-italic = {family="IosevkaTermNerdFontPropo", style="Italic"}
+normal = {family="0xProto", style="Regular"}
+bold = {family="IosevkaTerm", style="Bold"}
+italic = {family="IosevkaTerm", style="Italic"}
 
 [window]
 padding = { x = 3, y = 3 }
