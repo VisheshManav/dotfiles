@@ -10,6 +10,9 @@ vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
+vim.opt.list = true
+vim.opt.listchars = "lead:·,eol:¬"
+
 -- Wrap wraps the extra line content in next line
 -- and breakindent aligns it to the indent of the broken line
 vim.opt.wrap = true

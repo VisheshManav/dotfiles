@@ -61,7 +61,6 @@ return require("lazy").setup({
   "saadparwaiz1/cmp_luasnip",
   "hrsh7th/cmp-nvim-lua",
   "rafamadriz/friendly-snippets",
-
   "folke/zen-mode.nvim",
   "github/copilot.vim",
   {"dccsillag/magma-nvim", build = ":UpdateRemotePlugins"},
@@ -92,5 +91,8 @@ return require("lazy").setup({
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
+  {
+    'metalelf0/base16-black-metal-scheme'
 }
 })

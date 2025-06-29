@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -26,10 +26,10 @@ include /etc/sway/config-vars.d/*
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg $HOME/Pictures/Wallpapers/skyline.jpg fill
-#output * bg #253529 solid_color
-output * scale 1.5
-floating_maximum_size 1024 x 620
+output * bg $HOME/Pictures/Wallpapers/rose.jpg fill
+#output * bg #707070 solid_color
+output * scale 1.25
+floating_maximum_size 1440 x 900
 
 #
 # Example configuration:
@@ -52,9 +52,9 @@ floating_maximum_size 1024 x 620
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 exec swayidle -w \
-         timeout 300 'swaylock -f -i $HOME/Pictures/Wallpapers/rose.jpg' \
+         timeout 300 'swaylock -f -i $HOME/Pictures/Wallpapers/darkwaves.jpeg' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -i $HOME/Pictures/Wallpapers/rose.jpg'
+         before-sleep 'swaylock -f -i $HOME/Pictures/Wallpapers/darkwaves.jpeg'
 
 #  --- MY CONFIG ---
 floating_modifier $mod normal
@@ -95,7 +95,7 @@ for_window [app_id="ulauncher"] move up 50
 ## Scaling:
 bindsym $mod+Ctrl+0 output * scale 1.5, floating_maximum_size 1024 x 620
 bindsym $mod+Ctrl+equal output * scale 2, floating_maximum_size 800 x 450
-bindsym $mod+Ctrl+minus output * scale 1.25, floating_maximum_size 1440 x 750
+bindsym $mod+Ctrl+minus output * scale 1.25, floating_maximum_size 1440 x 900
 
 ## Volume:
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -138,9 +138,9 @@ exec swaymsg {
    #"workspace 1; exec alacritty -e tmux attach;"
    #"workspace 1; exec firefox;"
    #"workspace 1; exec obsidian --ozone-platform=wayland --enable-features=WaylandWindowDecorations;"
-   "workspace 2; exec alacritty -e tmux -u attach;"
-   "workspace 3; exec zen-browser"
-   "workspace 4; exec obsidian --ozone-platform=wayland --enable-features=WaylandWindowDecorations;"
+   "workspace 4; exec kitty tmux -u attach;"
+   "workspace 5; exec zen-browser"
+   "workspace 6; exec obsidian --ozone-platform=wayland --enable-features=WaylandWindowDecorations;"
 }
 
 gaps inner 0
@@ -171,7 +171,7 @@ input "1739:52694:DELL0A12:00_06CB:CDD6_Touchpad" {
 input "type:keyboard" {
     xkb_layout us,in
     xkb_variant ,hin-kagapa
-    xkb_options grp:shift_caps_toggle
+    xkb_options grp:alt_shift_toggle
 }
 # --- END MY CONFIG ---
 
@@ -181,7 +181,7 @@ input "type:keyboard" {
 #
     # Start a terminal
     # For the alacritty use $term -e tmux -u attach
-    bindsym $mod+Return exec $term -e tmux -u attach
+    bindsym $mod+Return exec $term tmux -u attach
 
     # Kill focused window
     bindsym --to-code $mod+Shift+q kill
@@ -273,7 +273,6 @@ input "type:keyboard" {
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
     for_window [title="Picture-in-Picture"] floating enable
-    for_window [title="kitty"] floating enable
     
     # Swap focus between the tiling area and the floating area
     bindsym $mod+space focus mode_toggle
